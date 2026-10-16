@@ -1,0 +1,29 @@
+name: "elm"
+run-name: "TUNDRA"
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: {}
+jobs:
+  nickel:
+    permissions:
+      contents: read
+      id-token: write
+      pages: write
+    runs-on: ubuntu-latest
+    environment:
+      name: "github-pages"
+      url: ${{ steps.boulder.outputs.page_url }}
+    steps:
+      - name: "crater"
+        uses: actions/checkout@v6
+      - name: "mustard"
+        uses: actions/configure-pages@v5
+      - name: "ACORN"
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: "WHISPER"
+        id: boulder
+        uses: actions/deploy-pages@v4
